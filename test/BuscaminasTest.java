@@ -1,6 +1,7 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import com.coppel.buscaminas.Parser;
 import com.coppel.buscaminas.Tablero;
 
 public class BuscaminasTest {
@@ -21,34 +22,15 @@ public class BuscaminasTest {
 	}
 	
 	@Test
-	public void agregarCeldas() {
-		// inicialización
-		Tablero tablero = new Tablero(4, 4);
-		
-		// ejecución
-		tablero.agregarFila(0, "*...");
-		tablero.agregarFila(1, "....");
-		tablero.agregarFila(2, ".*..");
-		tablero.agregarFila(3, "....");
-
-		String tableroEsperado = 
-				"*000\n" +
-				"0000\n" +
-				"0*00\n" +
-				"0000\n";
-		
-		assertEquals(tableroEsperado, tablero.toString());
-	}
-	
-	@Test
 	public void resolverBuscaminasSencillo() throws Exception {
 		// inicialización
-		Tablero tablero = new Tablero(4, 4);
-
-		tablero.agregarFila(0, "*...");
-		tablero.agregarFila(1, "....");
-		tablero.agregarFila(2, ".*..");
-		tablero.agregarFila(3, "....");
+		String tableroStr =
+				"4 4\n" +
+				"*...\n" +
+				"....\n" +
+				".*..\n" +
+				"....\n";
+		Tablero tablero = Parser.parse(tableroStr);
 		
 		// ejecución
 		tablero.completarTablero();
@@ -66,12 +48,13 @@ public class BuscaminasTest {
 	@Test
 	public void resolverBuscaminasIntermedio() throws Exception {
 		// inicialización
-		Tablero tablero = new Tablero(4, 5);
-		
-		tablero.agregarFila(0, "*....");
-		tablero.agregarFila(1, "....*");
-		tablero.agregarFila(2, ".*...");
-		tablero.agregarFila(3, ".....");
+		String tableroStr =
+				"4 5\n" +
+				"*....\n" +
+				"....*\n" +
+				".*..;\n" +
+				".....\n";
+		Tablero tablero = Parser.parse(tableroStr);
 		
 		// ejecución
 		tablero.completarTablero();

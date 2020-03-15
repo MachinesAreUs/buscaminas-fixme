@@ -12,6 +12,8 @@ public class Tablero {
 
 	public Tablero(Celda[][] celdas) {
 		this.arrayCeldas = celdas;
+		this.filas = celdas.length;
+		this.columnas = celdas[0].length;
 	}
 	
 	public Tablero(int filas, int columnas) {
@@ -25,15 +27,6 @@ public class Tablero {
 		for (int i = 0; i < filas; i++) {
 			for (int j = 0; j < columnas; j++) {
 				arrayCeldas[i][j] = new Celda();
-			}
-		}
-	}
-	
-	public void agregarFila(int renglon, String cadena) {
-		for (int i = 0; i < columnas; i++) {
-			char c = cadena.charAt(i);
-			if (c == '*') {
-				setMina(renglon, i);
 			}
 		}
 	}
