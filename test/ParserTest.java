@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import com.coppel.buscaminas.Parser;
 import com.coppel.buscaminas.Celda;
+import com.coppel.buscaminas.Dimensiones;
 
 public class ParserTest {
 
@@ -40,5 +41,12 @@ public class ParserTest {
 		assertTrue(fila[2].isMina());
 		assertFalse(fila[3].isMina());
 	}
-
+	
+	@Test
+	public void parsearEncabezado() {
+		Dimensiones dim = Parser.parseaEncabezados("10 20");
+	
+		assertEquals(10, dim.filas);
+		assertEquals(20, dim.columnas);
+	}
 }
