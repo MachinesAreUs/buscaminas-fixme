@@ -15,25 +15,6 @@ public class Tablero {
 		this.filas = celdas.length;
 		this.columnas = celdas[0].length;
 	}
-	
-	public Tablero(int filas, int columnas) {
-		this.filas = filas;
-		this.columnas = columnas;
-		inicializarCeldas();
-	}
-	
-	private void inicializarCeldas() {
-		arrayCeldas = new Celda[filas][columnas];
-		for (int i = 0; i < filas; i++) {
-			for (int j = 0; j < columnas; j++) {
-				arrayCeldas[i][j] = new Celda();
-			}
-		}
-	}
-	
-	public void setMina(int fila, int columna) {
-		arrayCeldas[fila][columna].setMina(true);
-	}
 
 	public void completarTablero() throws Exception{
 		for (int i = 0; i < filas; i++) {			

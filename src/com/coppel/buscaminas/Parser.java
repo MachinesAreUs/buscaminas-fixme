@@ -44,13 +44,4 @@ public class Parser {
 		int columnas = Integer.parseInt(datos[1]);
 		return new Dimensiones(filas, columnas);
 	}
-	
-	public static void agregarFila(Tablero tablero, int renglon, String cadena) {
-		for (int i = 0; i < cadena.length(); i++) {
-			char c = cadena.charAt(i);
-			if (c == '*') {
-				tablero.setMina(renglon, i);
-			}
-		}
-	}
 }

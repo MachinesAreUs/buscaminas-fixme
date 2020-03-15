@@ -5,21 +5,6 @@ import com.coppel.buscaminas.Parser;
 import com.coppel.buscaminas.Tablero;
 
 public class BuscaminasTest {
-
-	@Test
-	public void inicializaTablero() {
-		// inicialización
-		Tablero tablero = new Tablero(4, 4);
-
-		// validaciones
-		String tableroEsperado = 
-				"0000\n" +
-				"0000\n" +
-				"0000\n" +
-				"0000\n";
-		
-		assertEquals(tableroEsperado, tablero.toString());
-	}
 	
 	@Test
 	public void resolverBuscaminasSencillo() throws Exception {
