@@ -15,10 +15,10 @@ public class BuscaminasTest {
 				"....\n" +
 				".*..\n" +
 				"....\n";
-		BuscaMinas juego = Parser.parse(tableroStr);
+		BuscaMinas juego = Parser.parsea(tableroStr);
 		
 		// ejecución
-		juego.completarTablero();
+		juego.completaJuego();
 
 		// validaciones
 		String tableroEsperado = 
@@ -39,10 +39,10 @@ public class BuscaminasTest {
 				"....*\n" +
 				".*..;\n" +
 				".....\n";
-		BuscaMinas juego = Parser.parse(tableroStr);
+		BuscaMinas juego = Parser.parsea(tableroStr);
 		
 		// ejecución
-		juego.completarTablero();
+		juego.completaJuego();
 
 		// validaciones
 		String tableroEsperado = 

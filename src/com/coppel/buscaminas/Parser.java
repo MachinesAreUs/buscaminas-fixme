@@ -5,7 +5,7 @@ import java.io.StringReader;
 
 public class Parser {
 
-	public static BuscaMinas parse(String str) throws Exception {
+	public static BuscaMinas parsea(String str) throws Exception {
 		BufferedReader reader = new BufferedReader(new StringReader(str));
 		
 		Celda[][] celdas = null;
@@ -18,14 +18,14 @@ public class Parser {
         		Dimensiones dim = parseaEncabezados(cadena);
         		celdas = new Celda[dim.filas][dim.columnas];
         	} else {
-        		celdas[numFila -1] = parsearFila(cadena);
+        		celdas[numFila -1] = parseaFila(cadena);
         	}
         	numFila++;
         }
         return new BuscaMinas(celdas);
 	}
 
-	public static Celda[] parsearFila(String cadena) {
+	public static Celda[] parseaFila(String cadena) {
 		Celda[] fila = new Celda[cadena.length()];
 		for (int i = 0; i < cadena.length(); i++) {
 			Celda celda = new Celda();

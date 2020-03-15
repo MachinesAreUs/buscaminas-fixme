@@ -6,13 +6,13 @@ import java.nio.file.Paths;
 public class BuscaMinasCmdLine {
 
 	public static void main(String[] args) throws Exception {
-		BuscaMinas juego = leerTablero(args[0]);
-		juego.completarTablero();
-		juego.imprimir();
+		BuscaMinas juego = leeJuegoDesdeArchivo(args[0]);
+		juego.completaJuego();
+		juego.imprime();
 	}
 
-	private static BuscaMinas leerTablero(String rutaArchivo) throws Exception {
+	private static BuscaMinas leeJuegoDesdeArchivo(String rutaArchivo) throws Exception {
 		String fileStr = new String(Files.readAllBytes(Paths.get(rutaArchivo)));
-		return Parser.parse(fileStr);
+		return Parser.parsea(fileStr);
 	}
 }

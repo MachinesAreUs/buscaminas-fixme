@@ -16,24 +16,24 @@ public class BuscaMinas {
 		this.columnas = celdas[0].length;
 	}
 
-	public void completarTablero() throws Exception{
+	public void completaJuego() throws Exception{
 		for (int i = 0; i < filas; i++) {			
 			for (int j = 0; j < columnas; j++) {
 				Celda celda = arrayCeldas[i][j];
 				if (!celda.isMina()) {
-					asignarNumMinasVecinas(i, j);
+					asignaNumMinasVecinas(i, j);
 				}
 			}
 		}
 	}
 
-	private void asignarNumMinasVecinas(int i, int j) {		
-		List<Celda> vecinos = obtenerVecinos(i, j);
-		int suma = contarMinas(vecinos);
+	private void asignaNumMinasVecinas(int i, int j) {		
+		List<Celda> vecinos = obtenVecinos(i, j);
+		int suma = cuentaMinas(vecinos);
 		arrayCeldas[i][j].setMinasVecinos(suma);					
 	}
 
-	private int contarMinas(List<Celda> celdas) {
+	private int cuentaMinas(List<Celda> celdas) {
 		int suma = 0;
 		for (Celda vecino : celdas) {
 			if (vecino.isMina())
@@ -42,7 +42,7 @@ public class BuscaMinas {
 		return suma;
 	}
 
-	private List<Celda> obtenerVecinos(int i, int j) {
+	private List<Celda> obtenVecinos(int i, int j) {
 		List<Celda> vecinos = new ArrayList<Celda>();
 		for (int ivecino = i-1; ivecino <= i+1; ivecino++) {
 			for (int jvecino = j-1; jvecino <= j+1; jvecino++ ) {
@@ -70,7 +70,7 @@ public class BuscaMinas {
 		return j >= 0 && j < columnas;
 	}
 	
-	public void imprimir() {
+	public void imprime() {
 		System.out.println(this.toString());
 	}
 	

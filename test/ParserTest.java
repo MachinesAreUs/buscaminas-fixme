@@ -9,7 +9,7 @@ public class ParserTest {
 
 	@Test
 	public void parsearFilaSinMinas() {
-		Celda[] fila = Parser.parsearFila("....");
+		Celda[] fila = Parser.parseaFila("....");
 		
 		assertEquals(4, fila.length);
 		
@@ -20,7 +20,7 @@ public class ParserTest {
 	
 	@Test
 	public void parsearFilaConTodasMinas() {
-		Celda[] fila = Parser.parsearFila("****");
+		Celda[] fila = Parser.parseaFila("****");
 		
 		assertEquals(4, fila.length);
 		
@@ -31,7 +31,7 @@ public class ParserTest {
 	
 	@Test
 	public void parsearFilaConMinasIntercaladas() {
-		Celda[] fila = Parser.parsearFila("*.*.");
+		Celda[] fila = Parser.parseaFila("*.*.");
 		
 		assertEquals(4, fila.length);
 		
