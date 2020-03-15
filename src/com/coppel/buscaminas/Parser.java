@@ -44,4 +44,15 @@ public class Parser {
 		int columnas = Integer.parseInt(datos[1]);
 		return new Dimensiones(filas, columnas);
 	}
+	
+	public static class Dimensiones {
+
+		public int filas;
+		public int columnas;
+		
+		public Dimensiones(int filas, int columnas) {
+			this.filas = filas;
+			this.columnas = columnas;
+		}
+	}
 }
