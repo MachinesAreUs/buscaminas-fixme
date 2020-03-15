@@ -10,20 +10,24 @@ public class Parser {
 		
         String cadena;
         Tablero tablero = new Tablero();
-        int fila = 0;
+        int numFila = 0;
         while((cadena = reader.readLine()) != null) {
-        	if (fila == 0) {
-        		String[] datos = cadena.split(" ");
-        		int filas = Integer.parseInt(datos[0]);
-        		int columnas = Integer.parseInt(datos[1]);
-        		Dimensiones dim = new Dimensiones(filas, columnas);
+        	if (numFila == 0) {
+        		Dimensiones dim = parseHeaders(cadena);
         		tablero.inicializar(dim.filas, dim.columnas);
         	}else {
-        		agregarFila(tablero, fila - 1, cadena);
+        		agregarFila(tablero, numFila - 1, cadena);
         	}
-        	fila++;
+        	numFila++;
         }
         return tablero;
+	}
+
+	private static Dimensiones parseHeaders(String str) {
+		String[] datos = str.split(" ");
+		int filas = Integer.parseInt(datos[0]);
+		int columnas = Integer.parseInt(datos[1]);
+		return new Dimensiones(filas, columnas);
 	}
 	
 	public static void agregarFila(Tablero tablero, int renglon, String cadena) {
