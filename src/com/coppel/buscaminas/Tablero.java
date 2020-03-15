@@ -93,17 +93,7 @@ public class Tablero {
 	}
 	
 	public void imprimir() {
-		for (int i = 0; i<filas; i++) {
-			for (int j=0; j<columnas; j++) {
-				Celda celda = arrayCeldas[i][j];
-				if (celda.isMina) {
-					System.out.print("*");
-				} else {
-					System.out.print(celda.getVecinos());
-				}
-			}
-			System.out.println();
-		}
+		System.out.println(this.toString());
 	}
 	
 	public String toString() {
@@ -118,6 +108,7 @@ public class Tablero {
 					sb.append(celda.getVecinos());
 				}
 			}
+			sb.append('\n');
 		}
 		return sb.toString();
 	}

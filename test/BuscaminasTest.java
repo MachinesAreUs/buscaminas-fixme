@@ -15,10 +15,10 @@ public class BuscaminasTest {
 
 		// validaciones
 		String tableroEsperado = 
-				"0000" +
-				"0000" +
-				"0000" +
-				"0000";
+				"0000\n" +
+				"0000\n" +
+				"0000\n" +
+				"0000\n";
 		
 		assertEquals(tableroEsperado, tablero.toString());
 	}
@@ -36,10 +36,10 @@ public class BuscaminasTest {
 		tablero.agregarFila(3, "....");
 
 		String tableroEsperado = 
-				"*000" +
-				"0000" +
-				"0*00" +
-				"0000";
+				"*000\n" +
+				"0000\n" +
+				"0*00\n" +
+				"0000\n";
 		
 		assertEquals(tableroEsperado, tablero.toString());
 	}
@@ -59,10 +59,10 @@ public class BuscaminasTest {
 
 		// validaciones
 		String tableroEsperado = 
-				"*100" +
-				"2210" +
-				"1*10" +
-				"1110";
+				"*100\n" +
+				"2210\n" +
+				"1*10\n" +
+				"1110\n";
 		
 		assertEquals(tableroEsperado, tablero.toString());
 	}
@@ -82,10 +82,10 @@ public class BuscaminasTest {
 
 		// validaciones
 		String tableroEsperado = 
-				"*1011" +
-				"2211*" +
-				"1*111" +
-				"11100";
+				"*1011\n" +
+				"2211*\n" +
+				"1*111\n" +
+				"11100\n";
 		
 		assertEquals(tableroEsperado, tablero.toString());
 	}
