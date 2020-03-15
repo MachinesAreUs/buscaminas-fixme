@@ -8,10 +8,10 @@ public class BuscaMinas {
 	public int filas;
 	public int columnas;
 	
-	Celda arrayCeldas[][];
+	Celda celdas[][];
 
 	public BuscaMinas(Celda[][] celdas) {
-		this.arrayCeldas = celdas;
+		this.celdas = celdas;
 		this.filas = celdas.length;
 		this.columnas = celdas[0].length;
 	}
@@ -19,7 +19,7 @@ public class BuscaMinas {
 	public void completaJuego() throws Exception{
 		for (int i = 0; i < filas; i++) {			
 			for (int j = 0; j < columnas; j++) {
-				Celda celda = arrayCeldas[i][j];
+				Celda celda = celdas[i][j];
 				if (!celda.isMina()) {
 					asignaNumMinasVecinas(i, j);
 				}
@@ -30,7 +30,7 @@ public class BuscaMinas {
 	private void asignaNumMinasVecinas(int i, int j) {		
 		List<Celda> vecinos = obtenVecinos(i, j);
 		int suma = cuentaMinas(vecinos);
-		arrayCeldas[i][j].setMinasVecinos(suma);					
+		celdas[i][j].setMinasVecinos(suma);					
 	}
 
 	private int cuentaMinas(List<Celda> celdas) {
@@ -47,7 +47,7 @@ public class BuscaMinas {
 		for (int ivecino = i-1; ivecino <= i+1; ivecino++) {
 			for (int jvecino = j-1; jvecino <= j+1; jvecino++ ) {
 				if (fronterasValidas(ivecino, jvecino) && !yoMismo(i, j, ivecino, jvecino)) {
-					vecinos.add(arrayCeldas[ivecino][jvecino]);
+					vecinos.add(celdas[ivecino][jvecino]);
 				}
 			}
 		}
@@ -79,7 +79,7 @@ public class BuscaMinas {
 		
 		for (int i = 0; i<filas; i++) {
 			for (int j=0; j<columnas; j++) {
-				Celda celda = arrayCeldas[i][j];
+				Celda celda = celdas[i][j];
 				if (celda.isMina) {
 					sb.append('*');
 				} else {
