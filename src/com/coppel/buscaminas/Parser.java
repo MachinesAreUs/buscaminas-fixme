@@ -16,7 +16,8 @@ public class Parser {
         		String[] datos = cadena.split(" ");
         		int filas = Integer.parseInt(datos[0]);
         		int columnas = Integer.parseInt(datos[1]);
-        		tablero.inicializar(filas, columnas);
+        		Dimensiones dim = new Dimensiones(filas, columnas);
+        		tablero.inicializar(dim.filas, dim.columnas);
         	}else {
         		agregarFila(tablero, fila - 1, cadena);
         	}
