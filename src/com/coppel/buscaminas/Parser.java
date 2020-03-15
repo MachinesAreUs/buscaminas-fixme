@@ -5,7 +5,7 @@ import java.io.StringReader;
 
 public class Parser {
 
-	public static Tablero parse(String str) throws Exception {
+	public static BuscaMinas parse(String str) throws Exception {
 		BufferedReader reader = new BufferedReader(new StringReader(str));
 		
 		Celda[][] celdas = null;
@@ -22,7 +22,7 @@ public class Parser {
         	}
         	numFila++;
         }
-        return new Tablero(celdas);
+        return new BuscaMinas(celdas);
 	}
 
 	public static Celda[] parsearFila(String cadena) {

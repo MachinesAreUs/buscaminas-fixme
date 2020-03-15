@@ -2,7 +2,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import com.coppel.buscaminas.Parser;
-import com.coppel.buscaminas.Tablero;
+import com.coppel.buscaminas.BuscaMinas;
 
 public class BuscaminasTest {
 	
@@ -15,10 +15,10 @@ public class BuscaminasTest {
 				"....\n" +
 				".*..\n" +
 				"....\n";
-		Tablero tablero = Parser.parse(tableroStr);
+		BuscaMinas juego = Parser.parse(tableroStr);
 		
 		// ejecución
-		tablero.completarTablero();
+		juego.completarTablero();
 
 		// validaciones
 		String tableroEsperado = 
@@ -27,7 +27,7 @@ public class BuscaminasTest {
 				"1*10\n" +
 				"1110\n";
 		
-		assertEquals(tableroEsperado, tablero.toString());
+		assertEquals(tableroEsperado, juego.toString());
 	}
 	
 	@Test
@@ -39,10 +39,10 @@ public class BuscaminasTest {
 				"....*\n" +
 				".*..;\n" +
 				".....\n";
-		Tablero tablero = Parser.parse(tableroStr);
+		BuscaMinas juego = Parser.parse(tableroStr);
 		
 		// ejecución
-		tablero.completarTablero();
+		juego.completarTablero();
 
 		// validaciones
 		String tableroEsperado = 
@@ -51,6 +51,6 @@ public class BuscaminasTest {
 				"1*111\n" +
 				"11100\n";
 		
-		assertEquals(tableroEsperado, tablero.toString());
+		assertEquals(tableroEsperado, juego.toString());
 	}
 }
