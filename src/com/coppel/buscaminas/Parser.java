@@ -15,10 +15,9 @@ public class Parser {
         
         while((cadena = reader.readLine()) != null) {
         	if (numFila == 0) {
-        		Dimensiones dim = parseHeaders(cadena);
+        		Dimensiones dim = parseaEncabezados(cadena);
         		celdas = new Celda[dim.filas][dim.columnas];
         	} else {
-        		//agregarFila(tablero, numFila - 1, cadena);
         		celdas[numFila -1] = parsearFila(cadena);
         	}
         	numFila++;
@@ -29,15 +28,17 @@ public class Parser {
 	public static Celda[] parsearFila(String cadena) {
 		Celda[] fila = new Celda[cadena.length()];
 		for (int i = 0; i < cadena.length(); i++) {
+			Celda celda = new Celda();
 			char c = cadena.charAt(i);
 			if (c == '*') {
-				fila[i].setMina(true);
+				celda.setMina(true);
 			}
+			fila[i] = celda;
 		}
 		return fila;
 	}
 
-	private static Dimensiones parseHeaders(String str) {
+	public static Dimensiones parseaEncabezados(String str) {
 		String[] datos = str.split(" ");
 		int filas = Integer.parseInt(datos[0]);
 		int columnas = Integer.parseInt(datos[1]);

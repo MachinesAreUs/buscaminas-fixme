@@ -35,10 +35,10 @@ public class ParserTest {
 		
 		assertEquals(4, fila.length);
 		
-		assertTrue(fila[1].isMina());
+		assertTrue(fila[0].isMina());
 		assertFalse(fila[1].isMina());
-		assertTrue(fila[1].isMina());
-		assertFalse(fila[1].isMina());
+		assertTrue(fila[2].isMina());
+		assertFalse(fila[3].isMina());
 	}
 
 }
