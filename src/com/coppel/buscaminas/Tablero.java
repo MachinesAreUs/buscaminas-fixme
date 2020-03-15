@@ -10,7 +10,11 @@ public class Tablero {
 	
 	Celda arrayCeldas[][];
 
-	public void inicializar(int filas, int columnas) {
+	public Tablero(Celda[][] celdas) {
+		this.arrayCeldas = celdas;
+	}
+	
+	public Tablero(int filas, int columnas) {
 		this.filas = filas;
 		this.columnas = columnas;
 		inicializarCeldas();

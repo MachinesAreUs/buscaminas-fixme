@@ -8,19 +8,22 @@ public class Parser {
 	public static Tablero parse(String str) throws Exception {
 		BufferedReader reader = new BufferedReader(new StringReader(str));
 		
-        String cadena;
-        Tablero tablero = new Tablero();
+		Celda[][] celdas = null;
+		
+        String cadena;        
         int numFila = 0;
+        
         while((cadena = reader.readLine()) != null) {
         	if (numFila == 0) {
         		Dimensiones dim = parseHeaders(cadena);
-        		tablero.inicializar(dim.filas, dim.columnas);
-        	}else {
-        		agregarFila(tablero, numFila - 1, cadena);
+        		celdas = new Celda[dim.filas][dim.columnas];
+        	} else {
+        		//agregarFila(tablero, numFila - 1, cadena);
+        		celdas[numFila -1] = parsearFila(cadena);
         	}
         	numFila++;
         }
-        return tablero;
+        return new Tablero(celdas);
 	}
 
 	public static Celda[] parsearFila(String cadena) {
