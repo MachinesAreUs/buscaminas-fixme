@@ -14,10 +14,8 @@ public class Parser {
 		
 		lineas.remove(0);
 		
-		int numFila = 0;
-		for (String linea : lineas) {
-			celdas[numFila] = parseaFila(linea.trim());
-			numFila++;
+		for (int numFila = 0; numFila < dim.filas; numFila++) {
+			celdas[numFila] = parseaFila(lineas.get(numFila).trim());
 		}
 		return new BuscaMinas(celdas);
 	}
