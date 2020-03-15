@@ -12,7 +12,7 @@ public class BuscaMinasCmdLine {
 	}
 
 	private static BuscaMinas leeJuegoDesdeArchivo(String rutaArchivo) throws Exception {
-		String fileStr = new String(Files.readAllBytes(Paths.get(rutaArchivo)));
-		return Parser.parsea(fileStr);
+		String texto = new String(Files.readAllBytes(Paths.get(rutaArchivo)));
+		return Parser.parsea(texto);
 	}
 }

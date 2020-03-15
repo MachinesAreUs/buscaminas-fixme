@@ -46,7 +46,7 @@ public class BuscaMinas {
 		List<Celda> vecinos = new ArrayList<Celda>();
 		for (int ivecino = i-1; ivecino <= i+1; ivecino++) {
 			for (int jvecino = j-1; jvecino <= j+1; jvecino++ ) {
-				if (fronterasValidas(ivecino, jvecino) && !yoMismo(i, j, ivecino, jvecino)) {
+				if (fronterasValidas(ivecino, jvecino) && !mismaCelda(i, j, ivecino, jvecino)) {
 					vecinos.add(celdas[ivecino][jvecino]);
 				}
 			}
@@ -54,7 +54,7 @@ public class BuscaMinas {
 		return vecinos;
 	}
 	
-	private boolean yoMismo(int i, int j, int ivecino, int jvecino) {
+	private boolean mismaCelda(int i, int j, int ivecino, int jvecino) {
 		return ivecino == i && jvecino == j;
 	}
 	
@@ -77,8 +77,8 @@ public class BuscaMinas {
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
 		
-		for (int i = 0; i<filas; i++) {
-			for (int j=0; j<columnas; j++) {
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas; j++) {
 				Celda celda = celdas[i][j];
 				if (celda.isMina) {
 					sb.append('*');

@@ -2,6 +2,9 @@ package com.coppel.buscaminas;
 
 public class Celda {
 	
+	public boolean isMina;
+	public int minasVecinas = 0;
+	
 	/**
 	 * @return the isMina
 	 */
@@ -26,7 +29,4 @@ public class Celda {
 	public void setMinasVecinos(int valor) {
 		this.minasVecinas = valor;
 	}
-	public boolean isMina;
-	public int minasVecinas = 0;
-
 }

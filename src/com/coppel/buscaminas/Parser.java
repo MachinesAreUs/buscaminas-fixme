@@ -1,28 +1,25 @@
 package com.coppel.buscaminas;
 
-import java.io.BufferedReader;
-import java.io.StringReader;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Parser {
-
+	
 	public static BuscaMinas parsea(String str) throws Exception {
-		BufferedReader reader = new BufferedReader(new StringReader(str));
+		List<String> lineas = new LinkedList<String>(Arrays.asList(str.split("\n")));
+				
+		Dimensiones dim = parseaEncabezados(lineas.get(0).trim());
+		Celda[][] celdas = new Celda[dim.filas][dim.columnas];
 		
-		Celda[][] celdas = null;
+		lineas.remove(0);
 		
-        String cadena;        
-        int numFila = 0;
-        
-        while((cadena = reader.readLine()) != null) {
-        	if (numFila == 0) {
-        		Dimensiones dim = parseaEncabezados(cadena);
-        		celdas = new Celda[dim.filas][dim.columnas];
-        	} else {
-        		celdas[numFila -1] = parseaFila(cadena);
-        	}
-        	numFila++;
-        }
-        return new BuscaMinas(celdas);
+		int numFila = 0;
+		for (String linea : lineas) {
+			celdas[numFila] = parseaFila(linea.trim());
+			numFila++;
+		}
+		return new BuscaMinas(celdas);
 	}
 
 	public static Celda[] parseaFila(String cadena) {
