@@ -23,6 +23,17 @@ public class Parser {
         return tablero;
 	}
 
+	public static Celda[] parsearFila(String cadena) {
+		Celda[] fila = new Celda[cadena.length()];
+		for (int i = 0; i < cadena.length(); i++) {
+			char c = cadena.charAt(i);
+			if (c == '*') {
+				fila[i].setMina(true);
+			}
+		}
+		return fila;
+	}
+
 	private static Dimensiones parseHeaders(String str) {
 		String[] datos = str.split(" ");
 		int filas = Integer.parseInt(datos[0]);
