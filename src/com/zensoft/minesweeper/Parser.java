@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Parser {
 	
-	public static MineSweeper parse(String str) throws Exception {
+	public static MineSweeper parse(String str) {
 		List<String> lines = new LinkedList<String>(Arrays.asList(str.split("\n")));
 
 		Dimensions dims = parseHeaders(lines.get(0).trim());

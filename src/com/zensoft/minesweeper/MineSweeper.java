@@ -16,7 +16,7 @@ public class MineSweeper {
 		this.cols = cells[0].length;
 	}
 
-	public void completeBoard() throws Exception{
+	public void completeBoard() {
 		for (int i = 0; i < rows; i++) {			
 			for (int j = 0; j < cols; j++) {
 				Cell cell = cells[i][j];

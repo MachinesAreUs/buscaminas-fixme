@@ -1,15 +1,12 @@
 package com.zensoft.minesweeper;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
-
-import com.zensoft.minesweeper.MineSweeper;
-import com.zensoft.minesweeper.Parser;
-
-import static org.junit.Assert.*;
 
 public class MineSweeperTest {
 	
 	@Test
-	public void simpleBoard() throws Exception {
+	public void simpleBoard() {
 		String boardStr =
 				"4 4\n" +
 				"*...\n" +
@@ -30,7 +27,7 @@ public class MineSweeperTest {
 	}
 	
 	@Test
-	public void averageBoard() throws Exception {
+	public void averageBoard() {
 		String boardStr =
 				"4 5\n" +
 				"*....\n" +
